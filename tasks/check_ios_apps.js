@@ -17,12 +17,12 @@ module.exports = async () => {
   const slack = new SlackClient({ webhookUrl, botUser })
   const iosApps = apps.filter(app => app.platform === 'ios')
 
-  await pEachSeries(iosApps, async app => {
-    const detail = await store.app({ id: app.id, country: app.country })
+  await pEachSeries(iosApps, async ({ id, country, channels }) => {
+    const detail = await store.app({ id, country })
     const updated = fecha.parse(detail.updated, 'YYYY-MM-DDTHH:mm:ssZZ')
     const updatedAt = fecha.format(updated, 'YYYY/MM/DD HH:mm')
 
-    await pEachSeries(app.channels, channel => promiseRetry(async () => {
+    await pEachSeries(channels, channel => promiseRetry(async () => {
       await slack.notify({
         channel,
         title: detail.title,
