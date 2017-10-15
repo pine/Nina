@@ -522,6 +522,10 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
+ms@^0.7.1:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.3.tgz#708155a5e44e33f5fd0fc53e81d0d40a91be1fff"
+
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
@@ -580,6 +584,12 @@ promise-retry@^1.1.1:
   dependencies:
     err-code "^1.0.0"
     retry "^0.10.0"
+
+promise.sleep@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/promise.sleep/-/promise.sleep-0.2.0.tgz#84ed3f5803bb4232f46747ca32552825f48b70d4"
+  dependencies:
+    ms "^0.7.1"
 
 punycode@^1.4.1:
   version "1.4.1"

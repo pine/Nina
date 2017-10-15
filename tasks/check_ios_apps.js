@@ -6,6 +6,7 @@ const fecha = require('fecha')
 const pEachSeries = require('p-each-series')
 const promiseRetry = require('promise-retry')
 const { WebClient } = require('@slack/client')
+const sleep = require('promise.sleep')
 
 module.exports = async () => {
   const token = config.get('slack.token')
@@ -55,6 +56,7 @@ module.exports = async () => {
           ],
         }],
       })
+      await sleep(1000)
     }))
   })
 }
