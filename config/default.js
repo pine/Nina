@@ -25,6 +25,12 @@ module.exports = {
       minVersion: '1.0.0',
       channels: ['general'],
     },
+    {
+      platform: 'ios',
+      appId: 'com.example.app',
+      minVersion: '1.0.0',
+      channels: ['general'],
+    },
   ],
 
   localized: {
