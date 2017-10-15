@@ -1,0 +1,21 @@
+{
+  "name": "nina",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": {
+    "name": "Pine Mizune",
+    "email": "pinemz@gmail.com",
+    "url": "https://github.com/pine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pine/Nina"
+  },
+  "bugs": {
+    "url": "https://github.com/pine/Nina/issues"
+  },
+  "homepage": "https://github.com/pine/Nina",
+  "license": "MIT"
+}
