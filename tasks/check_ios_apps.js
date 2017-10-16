@@ -20,12 +20,13 @@ module.exports = async () => {
 
   await pEachSeries(iosApps, async ({ id, country, minVersion, channels }) => {
     const detail = await store.app({ id, country })
-    const updated = fecha.parse(detail.updated, 'YYYY-MM-DDTHH:mm:ssZZ')
-    const updatedAt = fecha.format(updated, 'YYYY/MM/DD HH:mm')
 
     // Check minimum version
     const version = detail.version
     if (semver.lte(version, minVersion)) return
+
+    const updated = fecha.parse(detail.updated, 'YYYY-MM-DDTHH:mm:ssZZ')
+    const updatedAt = fecha.format(updated, 'YYYY/MM/DD HH:mm')
 
     await pEachSeries(channels, channel => promiseRetry(async () => {
       await slack.notify({
