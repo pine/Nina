@@ -8,7 +8,7 @@ const checkIosApps = require('./tasks/check_ios_apps')
 !async function() {
   try {
     await checkAndroidApps()
-    await checkIosApps()
+    // await checkIosApps()
   } catch (e) {
     log.error(e)
     process.exit(1)
