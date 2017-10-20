@@ -27,4 +27,17 @@ server.listen(port, () => {
 
 const { CronJob } = require('cron')
 
+const checkAndroidApps = require('./tasks/check_android_apps')
+const checkIosApps = require('./tasks/check_ios_apps')
+
+!async function() {
+  await checkAndroidApps()
+  await checkIosApps()
+
+  new CronJob('*/5 * * * *', async () => {
+    await checkAndroidApps()
+    await checkIosApps()
+  }, null, true, 'Asia/Tokyo')
+}()
+
 // vim: se et ts=2 sw=2 sts=2 ft=javascript :
