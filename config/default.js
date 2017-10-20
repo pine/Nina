@@ -21,7 +21,7 @@ module.exports = {
     {
       platform: 'ios',
       country: 'jp',
-      id: '12345',
+      appId: '12345',
       minVersion: '1.0.0',
       channels: ['general'],
     },
