@@ -4,7 +4,7 @@ Nina
 
 :eyes: Check and notify app's latest version on App Store and Google Play
 
-![](pr/android.png)
+<a href="pr/android.png"><img src="pr/android.png" width="724"></a>
 
 ## License
 MIT &copy; Pinze Mizune
