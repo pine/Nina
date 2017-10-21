@@ -27,11 +27,14 @@ jobs:
             - ~/.cache/yarn/
       - add_ssh_keys:
           fingerprints:
-            - "23:b8:73:29:5e:9b:e0:c1:70:00:93:f8:95:e4:43:13"
+            - "1d:58:3c:f7:c0:bb:84:e9:27:85:aa:2e:0c:21:b5:9c"
       - deploy:
           name: Deploy Master to Heroku
           command: |
             if [ "${CIRCLE_BRANCH}" == 'master' ]; then
-              bash .circleci/setup-heroku.sh
-              git push -f heroku master
+              pwd
+              git clone ssh://git@ssh.github.com:443/pine/Nina-Private.git
+              ls
+              #bash .circleci/setup-heroku.sh
+              #git push -f heroku master
             fi
