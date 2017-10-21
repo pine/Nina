@@ -32,7 +32,7 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             if [ "${CIRCLE_BRANCH}" == 'master' ]; then
-              git clone ssh://git@ssh.github.com:443/pine/Nina-Private.git /tmp/private
+              GIT_TERMINAL_PROMPT=0 git clone ssh://git@ssh.github.com:443/pine/Nina-Private.git /tmp/private
               cp /tmp/private/config/production.js config/
               ls config
               bash .circleci/setup-heroku.sh
