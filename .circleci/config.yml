@@ -39,7 +39,8 @@ jobs:
               cp /tmp/private/config/production.js config/
               git config user.name "Pine Mizune"
               git config user.email "pinemz@gmail.com"
-              git commit -am "feat(config): add production config"
+              git add config/production.js
+              git commit -m "feat(config): add production config"
 
               bash .circleci/setup-heroku.sh
               git push -f heroku master
