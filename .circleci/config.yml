@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: node:8.5.0
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: Nina-{{ .Branch }}-{{ checksum 'yarn.lock' }}
+      - run:
+          name: System information
+          command: |
+            echo "Node $(node -v)"
+            echo "Yarn v$(yarn --version)"
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Test
+          command: yarn test
+      - save_cache:
+          key: Nina-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/workspace/node_modules
+            - ~/.cache/yarn/
+      - add_ssh_keys:
+          fingerprints:
+            - "23:b8:73:29:5e:9b:e0:c1:70:00:93:f8:95:e4:43:13"
+      - deploy:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == 'master' ]; then
+              bash .circleci/setup-heroku.sh
+              git push -f heroku master
+            fi
