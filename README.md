@@ -6,5 +6,27 @@ Nina
 
 <a href="pr/android.png"><img src="pr/android.png" width="724"></a>
 
+## Requirements
+
+- Node v`$(cat .node-version)`
+- Yarn
+
+## Running Locally
+
+```
+$ git clone https://github.com/pine/Nina.git
+$ cd Nina
+$ yarn
+$ yarn start
+```
+
+## Deploying to Heroku
+
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
 ## License
 MIT &copy; Pinze Mizune
