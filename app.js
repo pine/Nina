@@ -30,12 +30,7 @@ const { CronJob } = require('cron')
 const checkAndroidApps = require('./tasks/check_android_apps')
 const checkIosApps = require('./tasks/check_ios_apps')
 
-!async function() {
-  await checkAndroidApps()
-  await checkIosApps()
-}()
-
-const job = new CronJob('*/5 * * * *', async () => {
+const job = new CronJob('00 */5 * * * *', async () => {
   console.log('job')
   await checkAndroidApps()
   await checkIosApps()
