@@ -34,6 +34,7 @@ module.exports = async () => {
     const latestVersion = await mongo.findLatestVersion({ platform, appId })
     if (latestVersion && semver.lte(version, latestVersion)) return
 
+
     // Save latest version
     await mongo.saveLatestVersion({ platform, appId, version })
 

@@ -33,11 +33,12 @@ const checkIosApps = require('./tasks/check_ios_apps')
 !async function() {
   await checkAndroidApps()
   await checkIosApps()
-
-  new CronJob('*/5 * * * *', async () => {
-    await checkAndroidApps()
-    await checkIosApps()
-  }, null, true, 'Asia/Tokyo')
 }()
+
+const job = new CronJob('*/5 * * * *', async () => {
+  console.log('job')
+  await checkAndroidApps()
+  await checkIosApps()
+}, null, true, 'Asia/Tokyo')
 
 // vim: se et ts=2 sw=2 sts=2 ft=javascript :
