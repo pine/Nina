@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: Nina-{{ .Branch }}-{{ checksum 'yarn.lock' }}
+          key: Nina-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: System information
           command: |
