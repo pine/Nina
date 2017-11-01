@@ -13,5 +13,4 @@ const checkIosApps = require('./tasks/check_ios_apps')
     log.error(e)
     process.exit(1)
   }
-  process.exit(0)
 }()

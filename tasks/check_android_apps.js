@@ -24,7 +24,7 @@ module.exports = async () => {
   const iosApps = apps.filter(app => app.platform === 'android')
 
   await pEachSeries(iosApps, async ({ platform, appId, minVersion, channels }) => {
-    const detail = await store.app({ appId })
+    const detail = await store.app({ appId, cache: false })
 
     // Check minimum version
     const version = detail.version
