@@ -31,7 +31,6 @@ const checkAndroidApps = require('./tasks/check_android_apps')
 const checkIosApps = require('./tasks/check_ios_apps')
 
 const job = new CronJob('00 */5 * * * *', async () => {
-  console.log('job')
   await checkAndroidApps()
   await checkIosApps()
 }, null, true, 'Asia/Tokyo')
