@@ -22,7 +22,7 @@ jobs:
             apt-get update
             apt-get install -y mongodb-org-server
             mkdir -p /data/db
-            mongod &
+            mongod
       - run:
           name: Install dependencies
           command: yarn
