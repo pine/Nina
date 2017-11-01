@@ -5,6 +5,7 @@ Nina
 :eyes: Check and notify app's latest version on App Store and Google Play
 
 <a href="pr/android.png"><img src="pr/android.png" width="724"></a>
+<a href="pr/ios.png"><img src="pr/ios.png" width="724"></a>
 
 ## Requirements
 
