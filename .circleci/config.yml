@@ -15,6 +15,12 @@ jobs:
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
       - run:
+          name: Install MongoDB
+          command: |
+            echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+            apt-get update
+            apt-get install -y mongodb-org
+      - run:
           name: Install dependencies
           command: yarn
       - run:
