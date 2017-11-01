@@ -19,6 +19,9 @@ jobs:
       - run:
           name: Waiting for MongoDB to be ready
           command: |
+            apt update
+            apt install -y netcat
+
             for i in `seq 1 15`;
             do
               nc -z localhost 27017 && echo Success && exit 0
