@@ -22,8 +22,8 @@ test('can connect db', async () => {
 test('can findLatestVersion', async () => {
   const mongo = new MongoDb(mongoUrl)
   await mongo.connect()
-
   await mongo.db.collection('versions').deleteMany()
+
   await mongo.db.collection('versions').insertMany([
     {
       platform: 'platform',
@@ -45,5 +45,6 @@ test('can findLatestVersion', async () => {
   })
   expect(version).toBe('1.0.1')
 
+  await mongo.db.collection('versions').deleteMany()
   await mongo.disconnect()
 })
