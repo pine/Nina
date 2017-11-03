@@ -20,6 +20,9 @@
     "promise.sleep": "^0.2.0",
     "semver": "^5.4.1"
   },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
   "engines": {
     "node": "^8.5.0",
     "yarn": "^1.0.2"
@@ -38,8 +41,5 @@
   },
   "homepage": "https://github.com/pine/Nina",
   "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "jest": "^21.2.1"
-  }
+  "private": true
 }
