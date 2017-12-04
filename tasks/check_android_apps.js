@@ -21,26 +21,32 @@ module.exports = async () => {
   await mongo.connect()
 
   const slack = new SlackClient({ webhookUrl, botUser })
-  const iosApps = apps.filter(app => app.platform === 'android')
+  const androidApps = apps.filter(app => app.platform === 'android')
 
-  await pEachSeries(iosApps, async ({ platform, appId, minVersion, channels }) => {
-    const detail = await store.app({ appId, cache: false })
+  await pEachSeries(androidApps, async app => {
+    const appId = app.appId
+    const detail = await store.app({
+      appId,
+      lang: app.lang,
+      country: app.country,
+      cache: false,
+    })
 
     // Check minimum version
     const version = detail.version
-    if (semver.lte(version, minVersion)) return
+    if (semver.lte(version, app.minVersion)) return
 
     // Check latest version
-    const latestVersion = await mongo.findLatestVersion({ platform, appId })
+    const latestVersion = await mongo.findLatestVersion({ platform: 'android', appId })
     if (latestVersion && semver.lte(version, latestVersion)) return
 
     // Save latest version
-    await mongo.saveLatestVersion({ platform, appId, version })
+    await mongo.saveLatestVersion({ platform: 'android', appId, version })
 
-    const updated = fecha.parse(detail.updated, 'MMMM D, YYYY')
+    const updated = fecha.parse(detail.updated, 'YYYY年MM月DD日')
     const updatedAt = fecha.format(updated, 'YYYY/MM/DD')
 
-    await pEachSeries(channels, channel => promiseRetry(async () => {
+    await pEachSeries(app.channels, channel => promiseRetry(async () => {
       await slack.notify({
         channel,
         title: detail.title,
