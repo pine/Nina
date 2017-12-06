@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: node:8.5.0
+      - image: node:9.2.0
       - image: mongo:3.4.9
         command: [ mongod, --smallfiles ]
 
