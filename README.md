@@ -1,5 +1,7 @@
 Nina
 ----
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/pine/Nina.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/pine/Nina/tree/master.svg?style=shield)](https://circleci.com/gh/pine/Nina/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/pine/Nina.svg)](https://gemnasium.com/github.com/pine/Nina)
 [![Maintainability](https://api.codeclimate.com/v1/badges/15e182afefd85d50e4b5/maintainability)](https://codeclimate.com/github/pine/Nina/maintainability)
 
